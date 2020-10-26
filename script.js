@@ -16,33 +16,33 @@ project 1 - A Random Quote Generator
 const quotes = [
 
 {quote: "Love begins at home.",
-name: "Mother Teresa",
+source: "Mother Teresa",
 citation: "Speeches that changed the world",
 year: "December, 1979"},
 
 {quote: "The only thing we have to fear is fear itself.",
-name: "Franklin D.Roosevelt",
+source: "Franklin D.Roosevelt",
 citation: "Speeches that changed the world",
 year: "March, 1933"},
 
 {quote: "Ask not what your country can do for you, but what you can do for your country.",
-name: "John F.Kennedy",
+source: "John F.Kennedy",
 citation: "Speeches that changed the world",
 year: "January, 1961"},
 
 {quote: "There comes a time when one must take a position that is neither safe, nor politic, nor popular, but he must take it because conscience tells him it is right.",
-name: "Martin Luther King Jr",
+source: "Martin Luther King Jr",
 citation: "Speeches that changed the world",
 year: "February, 1968",
 photo: "martinjr.jpg"},
 
 {quote: "There is no job that is too small, there is no person who is too small",
-name: "Indira Gandhi",
+source: "Indira Gandhi",
 citation: "Speeches that changed the world",
 year: "November, 1974"},
 
 {quote: "The important thing is not to stop questioning. Curiosity has its own reason for existing.",
-name: "Albert Einstein",
+source: "Albert Einstein",
 citation: "Life Magazine",
 year: "May, 1955",
 photo: "einstein.jpg"}
@@ -74,7 +74,7 @@ function printQuote(){
 
       let generatedQuote = getRandomQuote(); 
       let quotesPrinted = `<p class = "quote">${generatedQuote.quote}
-      <p class = "source"> ${generatedQuote.name}
+      <p class = "source"> ${generatedQuote.source}
       <span class = "citation"> ${generatedQuote.citation}
       <span class = "year"> ${generatedQuote.year}</p>`
 
@@ -82,7 +82,7 @@ function printQuote(){
 // conditional statement to display the extra property in certain quotes
 
       	quotesPrinted = `<p class = "quote">${generatedQuote.quote}
-      <p class = "source"> ${generatedQuote.name}
+      <p class = "source"> ${generatedQuote.source}
       <span class = "citation"> ${generatedQuote.citation}
       <span class = "year"> ${generatedQuote.year}</p>
       <img src = "${generatedQuote.photo}" alt = "A picture of ${generatedQuote.name}">`
