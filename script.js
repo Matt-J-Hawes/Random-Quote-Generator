@@ -3,10 +3,6 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
 /*** 
  * `quotes` array 
 ***/
@@ -48,7 +44,7 @@ year: "May, 1955",
 photo: "einstein.jpg"}
 
 
-]
+];
 
 // QUOTES
 /***
@@ -57,12 +53,10 @@ photo: "einstein.jpg"}
 
  // this function randomly generates an object from the array
 function getRandomQuote(){ 
-
       let getQuote = Math.floor(Math.random() * quotes.length);  
       let quote = quotes[getQuote];
       return quote 
-
-}
+};
 
 /***
  * `printQuote` function
@@ -71,63 +65,49 @@ function getRandomQuote(){
 // I linked the function in order to display the randomly generated quote
 // I used template literals detailing how each part of the quote should be displayed
 function printQuote(){ 
-
       let generatedQuote = getRandomQuote(); 
       let quotesPrinted = `<p class = "quote">${generatedQuote.quote}
       <p class = "source"> ${generatedQuote.source}
       <span class = "citation"> ${generatedQuote.citation}
       <span class = "year"> ${generatedQuote.year}</p>`
-
       if(generatedQuote.photo){
-// conditional statement to display the extra property in certain quotes
-
-      	quotesPrinted = `<p class = "quote">${generatedQuote.quote}
-      <p class = "source"> ${generatedQuote.source}
-      <span class = "citation"> ${generatedQuote.citation}
-      <span class = "year"> ${generatedQuote.year}</p>
-      <img src = "${generatedQuote.photo}" alt = "A picture of ${generatedQuote.name}">`
-      }
-
+          	quotesPrinted +=
+           `<img src = "${generatedQuote.photo}" alt = "A picture of ${generatedQuote.name}">`
+      };
       return document.querySelector(".container").innerHTML = quotesPrinted
-  }
+  };
 
-
-//COLORS
 /***
  * `getColor` function
 ***/
-
 //Function randomly generates a color 
 function getColor(){
-
-	let red = Math.floor(Math.random() *256);
-	let green = Math.floor(Math.random() *256); 
-	let blue = Math.floor(Math.random() * 256);
-
-	let randomRGB = `rgb(${red},${green},${blue})`; // Template literal to take the random colors and assign it to a single variable
-
-	return randomRGB
+  	let red = Math.floor(Math.random() *256);
+  	let green = Math.floor(Math.random() *256); 
+  	let blue = Math.floor(Math.random() * 256);
+  	let randomRGB = `rgb(${red},${green},${blue})`; 
+	return randomRGB;
 }
-
 
 /***
  * `printColor` function
 ***/
-
 //take the color generated above and display it as the background color of the document
 function printColor(){
-
 	let colorChange = getColor();
 	return document.body.style.backgroundColor = colorChange
-}
-
+};
 
 /***
  * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
 ***/
-window.addEventListener("load",printQuote) // load in a quote on opening the application to avoid blank space.
-document.getElementById('load-quote').addEventListener("click", printQuote, false); // change quote when button is clicked
-document.getElementById('load-quote').addEventListener("click", printColor); // change color when button is clicked
-setInterval(printColor, 15000) // change color every 10 seconds
-setInterval(printQuote, 15000) // change quote every 10 seconds
+// load in a quote on opening the application to avoid blank space.
+window.addEventListener("load",printQuote); 
+// change quote when button is clicked
+document.getElementById('load-quote').addEventListener("click", printQuote, false); 
+// change color when button is clicked
+document.getElementById('load-quote').addEventListener("click", printColor); 
+// change color every 15 seconds
+setInterval(printColor, 15000); 
+// change quote every 15 seconds
+setInterval(printQuote, 15000); 
