@@ -6,7 +6,6 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-
 // an array of objects containing quotes, names, sources and dates 
 
 const quotes = [
