@@ -84,8 +84,11 @@ function getColor(){
   	let red = Math.floor(Math.random() *256);
   	let green = Math.floor(Math.random() *256); 
   	let blue = Math.floor(Math.random() * 256);
-  	let randomRGB = `rgb(${red},${green},${blue})`; 
-	return randomRGB;
+  	let randomRGBOne = `rgb(${red},${blue},${green})`; 
+    let randomRGBTwo = `rgb(${green},${blue},${red})`
+    let randomRGBThree = `rgb(${red},${green},${blue})`
+    let linear = `linear-gradient(to right, ${randomRGBOne}, ${randomRGBTwo}, ${randomRGBThree})`
+	return linear;
 }
 
 /***
@@ -94,7 +97,7 @@ function getColor(){
 //take the color generated above and display it as the background color of the document
 function printColor(){
 	let colorChange = getColor();
-	return document.body.style.backgroundColor = colorChange
+	return document.body.style.background = colorChange
 };
 
 /***
@@ -102,6 +105,7 @@ function printColor(){
 ***/
 // load in a quote on opening the application to avoid blank space.
 window.addEventListener("load",printQuote); 
+window.addEventListener("load",printColor)
 // change quote when button is clicked
 document.getElementById('load-quote').addEventListener("click", printQuote, false); 
 // change color when button is clicked
